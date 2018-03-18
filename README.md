@@ -1,10 +1,17 @@
-# secret-santa-vue
+# Secret Santa - in Vue!
 
 > A port of the rails app, SecretSanta
 
+This application is an attempt at making a serverless application of the rails application which I made 18 months ago. It uses:
+
+* Vue as the front-end
+* Typescript for javascript based requirements
+* Jest (and chai assertion library) for testing.
+* Vue Bootstrap for componentry.
+
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
