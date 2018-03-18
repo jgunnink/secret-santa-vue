@@ -1,6 +1,6 @@
-<testsuites name="jest tests" tests="1" failures="0" time="1.084">
-  <testsuite name="Home.vue" errors="0" failures="0" skipped="0" timestamp="2018-03-18T06:50:29" time="1.084" tests="1">
-    <testcase classname="Home.vue should display a welcome message on the home page" name="Home.vue should display a welcome message on the home page" time="0.023">
+<testsuites name="jest tests" tests="1" failures="0" time="0.757">
+  <testsuite name="Home.vue" errors="0" failures="0" skipped="0" timestamp="2018-03-18T06:54:46" time="0.757" tests="1">
+    <testcase classname="Home.vue should display a welcome message on the home page" name="Home.vue should display a welcome message on the home page" time="0.015">
     </testcase>
   </testsuite>
 </testsuites>
