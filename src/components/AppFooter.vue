@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="container">
+    <div class="container text-center">
       <p id="footerMsg">
         <img src="@/assets/santa_face_40.png">
         Made for fun in Perth, Western Australia by <a id="footerLink" href="http://twitter.com/jgunnink/">JK Gunnink</a>.
