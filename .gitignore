@@ -8,7 +8,7 @@ yarn-error.log*
 /test/e2e/reports/
 selenium-debug.log
 /coverage
-junit.xml
+junit*
 
 # Editor directories and files
 .idea
