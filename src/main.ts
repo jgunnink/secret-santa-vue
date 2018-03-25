@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
 import App from "./App.vue";
-// import store from "./store";
+import { store } from "./store/store";
 import router from "./router";
 
 Vue.use(BootstrapVue);
@@ -14,8 +14,7 @@ Vue.config.productionTip = false;
 const v = new Vue({
   el: "#app",
   router,
-  //   store,
+  store,
   template: "<App/>",
   components: { App },
-  data: { message: "this message is from the root vue" },
 });
