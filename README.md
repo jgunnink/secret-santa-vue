@@ -1,4 +1,4 @@
-# Secret Santa - in Vue!
+# Secret Santa - in Vue! [![Build Status](https://travis-ci.org/jgunnink/secret-santa-vue.svg?branch=master)](https://travis-ci.org/jgunnink/secret-santa-vue)
 
 > A port of the rails app, SecretSanta
 
