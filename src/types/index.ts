@@ -8,4 +8,5 @@ export interface List {
   name: string;
   value: number;
   giftDay: Date;
+  organiserName: string;
 }
