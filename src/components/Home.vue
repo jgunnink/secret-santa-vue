@@ -52,9 +52,13 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import CreateListModal from "@/components/CreateListModal.vue";
+import CreateListModal from "./CreateListModal.vue";
 
-@Component
+@Component({
+  components: {
+    CreateListModal,
+  },
+})
 export default class Home extends Vue {
   get msg(): string {
     return "Welcome to Secret Santa";

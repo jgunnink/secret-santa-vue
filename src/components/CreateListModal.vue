@@ -9,7 +9,8 @@
                       type="text"
                       v-model="listName"
                       required
-                      placeholder="Enter name">
+                      :state="listName.trim().length > 1"
+                      placeholder="List name">
         </b-form-input>
       </b-form-group>
       <b-form-group id="organiserNameGroup"
@@ -18,8 +19,10 @@
                     description="Enter your name so your participants know who sent them the message.">
         <b-form-input id="organiserNameInput"
                       type="text"
+                      required
                       v-model="organiserName"
-                      required>
+                      :state="organiserName.trim().length > 1"
+                      placeholder="Your Name">
         </b-form-input>
       </b-form-group>
     </b-form>
@@ -37,7 +40,11 @@ export default class CreateListModal extends Vue {
 
   onSubmit(evt) {
     evt.preventDefault();
-    alert(this.listName + this.organiserName);
+    if (!this.listName || !this.organiserName) {
+      alert("Please fill out the fields before proceeding");
+    } else {
+      console.log("Form OK");
+    }
   }
 }
 </script>

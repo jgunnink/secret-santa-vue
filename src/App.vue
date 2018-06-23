@@ -8,8 +8,9 @@
 
 <script lang="ts">
 import Vue from "vue";
-import AppFooter from "@/components/AppFooter.vue";
-import Navbar from "@/components/Navbar.vue";
+import AppFooter from "./components/AppFooter.vue";
+import Navbar from "./components/Navbar.vue";
+import CreateListModal from "./components/CreateListModal.vue";
 
 export default class App extends Vue {}
 </script>
