@@ -7,7 +7,7 @@
           <p class="lead" id="welcomeMsg">{{ msg }}</p>
           <p>Organise your secret santa gift exchange in minutes!</p>
           <p>
-            <a href="#" class="btn btn-lg btn-secondary">Get started</a>
+            <b-btn v-b-modal.createListModal>Get started</b-btn>
           </p>
         </b-col>
         <b-col cols="8">
@@ -45,14 +45,20 @@
         </b-row>
       </div>
     </div>
+    <CreateListModal />
   </main>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import CreateListModal from "./CreateListModal.vue";
 
-@Component
+@Component({
+  components: {
+    CreateListModal,
+  },
+})
 export default class Home extends Vue {
   get msg(): string {
     return "Welcome to Secret Santa";
