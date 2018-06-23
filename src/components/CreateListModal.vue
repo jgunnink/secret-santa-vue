@@ -43,7 +43,10 @@ export default class CreateListModal extends Vue {
     if (!this.listName || !this.organiserName) {
       alert("Please fill out the fields before proceeding");
     } else {
-      console.log("Form OK");
+      this.$store.commit("setInitialListDetails", {
+        listName: this.listName,
+        organiserName: this.organiserName,
+      });
     }
   }
 }
