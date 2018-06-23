@@ -18,4 +18,5 @@ module.exports = {
   testResultsProcessor: "jest-junit",
   snapshotSerializers: ["<rootDir>/node_modules/jest-serializer-vue"],
   setupFiles: ["<rootDir>/test/unit/setup"],
+  coveragePathIgnorePatterns: ["<rootDir>/test/unit/helpers"],
 };

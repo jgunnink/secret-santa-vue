@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { querySelectorForVM, createMountedVM, nextTick } from "../../helpers/vm_utils";
+import { querySelectorForVM, createMountedVM } from "../../helpers/vm_utils";
 import Home from "@/components/Home.vue";
 
 describe("Home.vue", () => {
