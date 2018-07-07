@@ -16,7 +16,7 @@ describe("Home.vue", () => {
   }
 
   beforeEach(() => {
-    vm = createMountedVM(CreateListModal, {});
+    vm = createMountedVM(CreateListModal, { store: mockStoreCreator({ state: {} }) });
     alert = sinon.spy();
   });
 
@@ -60,24 +60,16 @@ describe("Home.vue", () => {
     expect(alert.callCount).to.equal(0);
   });
 
-  describe("Saving the values of the starting modal to state", () => {
-    let mockedStore;
+  // TODO: Test state injection correctly.
+  // describe("Saving the values of the starting modal to state", () => {
+  //   it("should save the entered values of the form into state", async () => {
+  //     vm.listName = "Family Secret Santa, 2018";
+  //     vm.organiserName = "JK Gunnink";
+  //     vm.$el.querySelector(".btn-primary").click();
 
-    beforeEach(() => {
-      mockedStore = mockStoreCreator({
-        state: { listName: "", organiserName: "" },
-      });
-    });
-
-    // it("should save the entered values of the form into state", async () => {
-    //   vm.$el.querySelector(".btn-primary");
-    //   vm.listName = "Family Secret Santa";
-    //   vm.organiserName = "JK Gunnink";
-    //   vm.$el.querySelector(".btn-primary").click();
-
-    //   await nextTick();
-    //   expect(mockedStore.listName).to.equal("Family Secret Santa, 2018");
-    //   expect(mockedStore.organiserName).to.equal("JK Gunnink");
-    // });
-  });
+  //     await nextTick();
+  //     expect(vm.$store.state.listName).to.equal("Family Secret Santa, 2018");
+  //     expect(vm.$store.state.organiserName).to.equal("JK Gunnink");
+  //   });
+  // });
 });
