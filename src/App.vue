@@ -11,6 +11,7 @@ import Vue from "vue";
 import AppFooter from "./components/AppFooter.vue";
 import Navbar from "./components/Navbar.vue";
 import CreateListModal from "./components/CreateListModal.vue";
+import ListEditPage from "./components/ListEditPage.vue";
 
 export default class App extends Vue {}
 </script>

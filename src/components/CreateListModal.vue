@@ -47,6 +47,7 @@ export default class CreateListModal extends Vue {
         listName: this.listName,
         organiserName: this.organiserName,
       });
+      this.$router.push("/list");
     }
   }
 }
