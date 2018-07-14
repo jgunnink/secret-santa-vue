@@ -2,33 +2,19 @@
   <div class="container">
     <h2>List Page!</h2>
     <p>{{this.$store.state.organiserName}}, let's organise your names for your {{this.$store.state.listName}} list.</p>
-    <b-form @submit="onSubmit">
-      <b-container fluid class="bv-example-row">
-        <template v-for="santa in 15">
-          <b-row v-bind:key="santa">
-            <b-form-group id="santaGroup"
-                          :label="'Name and email of participant ' + santa.toString()"
-                          label-for="nameInput"
-                          v-bind:key="santa">
-              <b-col>
-                <b-form-input id="nameInput"
-                            type="text"
-                            required
-                            placeholder="Name">
-                </b-form-input>
-              </b-col>
-              <b-col>
-                <b-form-input id="emailInput"
-                              type="email"
-                              required
-                              placeholder="Email">
-                </b-form-input>
-              </b-col>
-            </b-form-group>
-          </b-row>
-        </template>
-      </b-container>
+    <b-form inline @submit="onSubmit">
+      <template v-for="santa in 15">
+        <b-form-group id="santaGroup" v-bind:key="santa" style="margin-right: 20px">
+          <p>Santa {{santa}}</p>
+          <b-input id="nameInput" placeholder="John Smith" />
+          <div style="padding-bottom: 5px" />
+          <b-input id="emailInput" type="email" required placeholder="name@example.com" />
+          <div style="padding-bottom: 5px" />
+          <br>
+        </b-form-group>
+      </template>
     </b-form>
+    <b-button type="submit" variant="primary">Submit</b-button>
   </div>
 </template>
 
@@ -43,3 +29,6 @@ export default class ListEditPage extends Vue {
   }
 }
 </script>
+
+<style scoped>
+</style>
