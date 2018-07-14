@@ -40,17 +40,18 @@ export default class ListEditPage extends Vue {
     { name: "", email: "" },
     { name: "", email: "" },
     { name: "", email: "" },
-    { name: "", email: "" }
-];
+    { name: "", email: "" },
+  ];
 
-  onSubmit(evt) {
+  async onSubmit(evt) {
     evt.preventDefault();
     const updatedList = this.filterEmptyRecords(this.santas);
-    console.log(updatedList)
+    const response = await this.$store.dispatch("sendSantas", updatedList);
+    console.log(updatedList);
   }
 
   filterEmptyRecords(santas) {
-    return santas.filter(santa => (santa.name != "") || (santa.email != ""));
+    return santas.filter(santa => santa.name != "" || santa.email != "");
   }
 }
 </script>

@@ -7,6 +7,7 @@ export interface Santa {
 export interface List {
   name: string;
   value?: number;
-  giftDay?: Date;
+  giftDay?: string;
   organiserName?: string;
+  santas: Santa[];
 }
