@@ -1,7 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container" style="margin-bottom: 30px">
     <h2>List Page!</h2>
-    <p>{{this.$store.state.organiserName}}, let's organise your names for your {{this.$store.state.listName}} list.</p>
+    <p>{{this.$store.state.organiserName}}, let's get started with some details:</p>
+    <ListDetails />
+    <hr />
+    <p>Ok, now lets organise your names for your {{this.$store.state.listName}} list.</p>
+    <p>You can put in up to 15 people, but should probably put in more than two.</p>
     <b-form inline @submit="onSubmit">
       <template v-for="santa in santas">
         <b-form-group v-bind:key="santas.indexOf(santa)" style="margin-right: 20px">
@@ -20,9 +24,14 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import ListDetails from "./ListDetails.vue";
 import { Santa } from "../types/index";
 
-@Component
+@Component({
+  components: {
+    ListDetails,
+  },
+})
 export default class ListEditPage extends Vue {
   // 15 Empty Santas as generated on page load
   santas: Santa[] = [
