@@ -1,7 +1,7 @@
 import { List } from "./index";
 
 export interface IStoreState {
-  listName?: String;
-  organiserName?: String;
+  listName?: string;
+  organiserName?: string;
   list: List;
 }

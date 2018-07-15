@@ -54,9 +54,10 @@ export default class ListEditPage extends Vue {
 
   async onSubmit(evt) {
     evt.preventDefault();
-    const updatedList = this.filterEmptyRecords(this.santas);
-    const response = await this.$store.dispatch("sendSantas", updatedList);
-    console.log(updatedList);
+    const filteredList = this.filterEmptyRecords(this.santas);
+    this.$store.commit("saveSantas", filteredList);
+    console.log("About to send to endpoint: ", this.$store.state.list);
+    const response = await this.$store.dispatch("sendSantas", this.$store.state.list);
   }
 
   filterEmptyRecords(santas) {
