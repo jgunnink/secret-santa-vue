@@ -1,5 +1,6 @@
 import Vue from "vue";
 import BootstrapVue from "bootstrap-vue";
+import Toasted from "vue-toasted";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
@@ -9,6 +10,7 @@ import router from "./router";
 
 Vue.use(BootstrapVue);
 Vue.config.productionTip = false;
+Vue.use(Toasted);
 
 /* eslint-disable no-new */
 const v = new Vue({

@@ -1,5 +1,5 @@
 import { IStoreState } from "../../types/store";
-import { List } from "../../types/index";
+import { List } from "../../types";
 
 export const setInitialListDetails = (state: IStoreState, payload): void => {
   state.listName = payload.listName;
