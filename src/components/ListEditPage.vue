@@ -1,5 +1,9 @@
 <template>
-  <div class="container" style="margin-bottom: 30px">
+  <div class="container" v-if="!nameAndListExist()">
+    <h2>Oops! You either refreshed the page or you got here by accident!</h2>
+    <p>Go to the home page first, to set your name and list details</p>
+  </div>
+  <div v-else class="container" style="margin-bottom: 30px">
     <h2>List Page!</h2>
     <p>{{this.$store.state.organiserName}}, let's get started with some details:</p>
     <ListDetails />
@@ -34,13 +38,24 @@
       v-on:click="santas.pop()"
       style="margin-top: 10px; margin-left: 10px"
     >Remove Santa</b-btn>
-    <br />
     <b-alert
       style="margin-top: 10px;"
       :show="santas.length == 15"
     >You've made it to the maximum of 15 santas</b-alert>
     <hr />
+    <h5>Here are the details you've recorded for your list:</h5>
+    <ul>
+      <li>Your name: {{this.$store.state.organiserName}}</li>
+      <li>List name: {{this.$store.state.listName}}</li>
+      <li>Gift value: ${{this.$store.state.list.value}}</li>
+      <li>Gift day: {{this.$store.state.list.giftDay}}</li>
+      <li>List size: {{filterEmptyRecords(santas).length}}</li>
+    </ul>
     <b-alert :show="this.submitting">Now shuffling and sending... Please wait</b-alert>
+    <b-alert v-if="!this.submitting" variant="warning" show>
+      Please double check emails and names!
+      <br />Incorrect emails means that people will miss out.
+    </b-alert>
     <b-btn
       variant="primary"
       :disabled="this.submitting"
@@ -89,11 +104,18 @@ export default class ListEditPage extends Vue {
   }
 
   filterEmptyRecords(santas) {
-    return santas.filter(santa => santa.name != "" || santa.email != "");
+    return santas.filter(santa => santa.name != "" && santa.email != "");
   }
 
   get fetchList() {
     return this.$store.getters.list;
+  }
+
+  nameAndListExist(): boolean {
+    return (
+      this.$store.state.organiserName.length != 0 ||
+      this.$store.state.listName.length != 0
+    );
   }
 
   get valueAndDay(): boolean {

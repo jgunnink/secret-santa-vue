@@ -8,6 +8,6 @@ export interface List {
   name: string;
   value?: number;
   giftDay?: string;
-  organiserName?: string;
+  organiserName: string;
   santas: Santa[];
 }
