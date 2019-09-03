@@ -3,8 +3,7 @@
     <h2>List Page!</h2>
     <p>{{this.$store.state.organiserName}}, let's get started with some details:</p>
     <ListDetails />
-    <hr />
-    <p>Ok, now lets organise your names for your {{this.$store.state.listName}} list.</p>
+
     <p>You can put in up to 15 people, but should probably put in more than two.</p>
     <b-form inline @submit="onSubmit">
       <template v-for="santa in santas">
@@ -12,21 +11,42 @@
           <p>Santa {{santas.indexOf(santa) + 1}}</p>
           <b-input id="nameInput" required placeholder="John Smith" v-model="santa.name" />
           <div style="padding-bottom: 5px" />
-          <b-input id="emailInput" type="email" required placeholder="name@example.com" v-model="santa.email" />
+          <b-input
+            id="emailInput"
+            type="email"
+            required
+            placeholder="name@example.com"
+            v-model="santa.email"
+          />
           <div style="margin-bottom: 20px" />
         </b-form-group>
       </template>
-      <b-form-checkbox id="copyOfList" v-model="this.receiveCopy" value="true" unchecked-value="false" aria-describedby="copyOfListHelp">
-        I would like a copy of all the members and their email addresses.
-      </b-form-checkbox>
-      <b-form-text id="copyOfListHelp">
-        Don't worry! You won't know who was assigned to who, this is just a confirmation email.
-      </b-form-text>
     </b-form>
+    <b-btn
+      variant="primary"
+      :disabled="this.submitting || santas.length === 15"
+      v-on:click="addBlankSanta(santas)"
+      style="margin-top: 10px"
+    >Add Santa</b-btn>
+    <b-btn
+      variant="secondary"
+      :disabled="this.submitting || santas.length === 1"
+      v-on:click="santas.pop()"
+      style="margin-top: 10px; margin-left: 10px"
+    >Remove Santa</b-btn>
+    <br />
+    <b-alert
+      style="margin-top: 10px;"
+      :show="santas.length == 15"
+    >You've made it to the maximum of 15 santas</b-alert>
+    <hr />
     <b-alert :show="this.submitting">Now shuffling and sending... Please wait</b-alert>
-    <b-btn variant="primary" :disabled="this.submitting" v-on:click="onSubmit" style="margin-top: 10px">
-      Shuffle and send emails
-    </b-btn>
+    <b-btn
+      variant="primary"
+      :disabled="this.submitting"
+      v-on:click="onSubmit"
+      style="margin-top: 10px"
+    >Shuffle and send emails</b-btn>
   </div>
 </template>
 
@@ -39,31 +59,18 @@ import { showSuccessToast, showErrorToast } from "../helpers/toast_popup";
 
 @Component({
   components: {
-    ListDetails,
-  },
+    ListDetails
+  }
 })
 export default class ListEditPage extends Vue {
   submitting: boolean = false;
   receiveCopy: boolean = false;
+  santas: Santa[] = [{ name: "", email: "" }];
 
-  // 15 Empty Santas as generated on page load
-  santas: Santa[] = [
-    { name: "", email: "" },
-    { name: "", email: "" },
-    { name: "", email: "" },
-    { name: "", email: "" },
-    { name: "", email: "" },
-    { name: "", email: "" },
-    { name: "", email: "" },
-    { name: "", email: "" },
-    { name: "", email: "" },
-    { name: "", email: "" },
-    { name: "", email: "" },
-    { name: "", email: "" },
-    { name: "", email: "" },
-    { name: "", email: "" },
-    { name: "", email: "" },
-  ];
+  addBlankSanta(santas): void {
+    santas.push({ name: "", email: "" });
+    return;
+  }
 
   async onSubmit(evt) {
     evt.preventDefault();
@@ -87,6 +94,10 @@ export default class ListEditPage extends Vue {
 
   get fetchList() {
     return this.$store.getters.list;
+  }
+
+  get valueAndDay(): boolean {
+    return this.$store.state.list.value && this.$store.state.list.giftDay;
   }
 }
 </script>

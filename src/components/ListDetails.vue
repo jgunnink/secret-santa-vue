@@ -1,13 +1,21 @@
 <template>
   <div>
     <b-form @submit="onSubmit" @reset="onReset" v-if="show" style="margin-bottom: 15px">
-      <b-form-group label="Gift value amount: ($)"
-                    label-for="valueinput"
-                    prepend="$"
-                    description="Numbers only. Eg: 40">
-        <b-form-input id="valueinput" v-model="value" type="number" required placeholder="Enter gift value amount." />
+      <b-form-group
+        label="Gift value amount: ($)"
+        label-for="valueinput"
+        prepend="$"
+        description="Numbers only. Eg: 40"
+      >
+        <b-form-input
+          id="valueinput"
+          v-model="value"
+          type="number"
+          required
+          placeholder="Enter gift value amount."
+        />
       </b-form-group>
-        <b-form-group label="Day to exchange gifts">
+      <b-form-group label="Day to exchange gifts">
         <b-form-input type="text" v-model="giftDay" required placeholder="Eg: 25th December" />
       </b-form-group>
       <b-button type="submit" variant="success">Save</b-button>
@@ -36,10 +44,10 @@ export default class ListDetails extends Vue {
     } else {
       this.$store.commit("updateListDetails", {
         value: this.value,
-        giftDay: this.giftDay,
+        giftDay: this.giftDay
       });
       this.savedNotice = true;
-      await this.sleep(4000);
+      await this.sleep(2000);
       this.savedNotice = false;
     }
   }

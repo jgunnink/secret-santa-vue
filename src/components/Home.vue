@@ -12,13 +12,15 @@
             </p>
           </b-col>
           <b-col cols="8">
-            <div class="text-center"><img src="@/assets/santa_with_sack_full.png"></div>
+            <div class="text-center">
+              <img src="@/assets/santa_with_sack_full.png" />
+            </div>
           </b-col>
         </b-row>
         <div class="text-center">
           <b-row>
             <b-col cols="4">
-              <img height="140px" width="140px" src="@/assets/checklist.png">
+              <img height="140px" width="140px" src="@/assets/checklist.png" />
               <h4>Easy organising</h4>
               <p>
                 If you're organising a gift exchange for your family or workplace, let Secret Santa take care of the
@@ -27,7 +29,7 @@
               </p>
             </b-col>
             <b-col cols="4">
-              <img height="140px" width="140px" src="@/assets/open_letter.png">
+              <img height="140px" width="140px" src="@/assets/open_letter.png" />
               <h4>How it works</h4>
               <p>
                 Once you have your list of Santas, let computer take care of the rest! It will shuffle all your users
@@ -36,7 +38,7 @@
               </p>
             </b-col>
             <b-col cols="4">
-              <img height="140px" width="140px" src="@/assets/gift.png">
+              <img height="140px" width="140px" src="@/assets/gift.png" />
               <h4>It's free!</h4>
               <p>
                 Secret Santa is free to use. There's no adverts, no spamming and we keep your details safe. The Secret
@@ -58,10 +60,10 @@ import Component from "vue-class-component";
 import AppFooter from "./AppFooter.vue";
 import CreateListModal from "./CreateListModal.vue";
 
-  @Component({
+@Component({
   components: {
-    CreateListModal,
-  },
+    CreateListModal
+  }
 })
 export default class Home extends Vue {
   get msg(): string {
