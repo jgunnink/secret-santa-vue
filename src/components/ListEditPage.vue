@@ -93,9 +93,10 @@ export default class ListEditPage extends Vue {
     const filteredList = this.filterEmptyRecords(this.santas);
     this.$store.commit("saveSantas", filteredList);
     const response = await this.$store.dispatch("sendSantas", this.fetchList);
-    if (response.status.code == 200) {
+    console.log("RESPONSE FROM REQUEST IS:", response);
+    if (response.status && response.status.code == 200) {
       this.submitting = false;
-      showSuccessToast("List submitted, your Santas will be emailed soon!");
+      showSuccessToast("List submitted, your Santas have been emailed!");
       this.$router.push("/");
     } else {
       this.submitting = false;
