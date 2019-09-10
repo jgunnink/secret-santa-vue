@@ -2,8 +2,6 @@
   <header>
     <nav class="navbar justify-content-center">
       <a class="nav-link" href="/">Home</a>
-      <!-- <a class="nav-link" href="#">Sign in</a>
-      <a class="nav-link" href="#">Sign up</a> -->
     </nav>
   </header>
 </template>

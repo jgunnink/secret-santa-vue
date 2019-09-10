@@ -49,6 +49,21 @@
             </p>
           </b-col>
         </b-row>
+        <b-row>
+          <b-container fluid style="textAlign: center;">
+            <b-button variant="primary" v-b-modal.how-it-works>Watch video and learn more</b-button>
+            <b-modal id="how-it-works" title="How it works" ok-only>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/BCUq2gmUDpw"
+                frameborder="0"
+                allow="autoplay;"
+                allowfullscreen
+              ></iframe>
+            </b-modal>
+          </b-container>
+        </b-row>
       </b-container>
       <CreateListModal />
     </main>
@@ -75,10 +90,6 @@ export default class Home extends Vue {
 </script>
 
 <style scoped>
-.banner {
-  margin-top: 2em;
-}
-
 .footer {
   position: fixed;
   left: 0px;
