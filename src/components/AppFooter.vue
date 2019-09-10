@@ -2,8 +2,9 @@
   <footer class="footer">
     <div class="container text-center">
       <p id="footerMsg">
-        <img src="@/assets/santa_face_40.png">
-        Made for fun in Perth, Western Australia by <a id="footerLink" href="http://twitter.com/jgunnink/">JK Gunnink</a>.
+        <img src="@/assets/santa_face_40.png" />
+        Made for fun by
+        <a id="footerLink" href="http://twitter.com/jgunnink/">JK Gunnink</a>.
       </p>
     </div>
   </footer>
@@ -18,6 +19,5 @@ export default class AppFooter extends Vue {}
 </script>
 
 <style scoped>
-
 </style>
 
